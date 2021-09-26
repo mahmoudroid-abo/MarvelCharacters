@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_nav_graph"
+    app:startDestination="@id/charactersFragment">
+
+    <activity
+        android:id="@+id/splashScreen"
+        android:name="com.mahmoudroid.marvelcharacters.ui.SplashScreen"
+        android:label="activity_splash_screen"
+        tools:layout="@layout/activity_splash_screen" />
+    <fragment
+        android:id="@+id/charactersFragment"
+        android:name="com.mahmoudroid.marvelcharacters.ui.fragments.CharactersFragment"
+        android:label="CharactersFragment">
+        <action
+            android:id="@+id/action_charactersFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_charactersFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.mahmoudroid.marvelcharacters.ui.fragments.DetailsFragment"
+        android:label="DetailsFragment">
+        <argument
+            android:name="results"
+            app:argType="com.mahmoudroid.marvelcharacters.models.Result" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.mahmoudroid.marvelcharacters.ui.fragments.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+</navigation>
